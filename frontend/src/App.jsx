@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Navbar from './components/shared/Navbar'
+import { Toaster } from 'react-hot-toast';
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
 import Home from './components/Home'
@@ -77,6 +77,7 @@ function App() {
   return (
     <div>
       <RouterProvider router={appRouter} />
+      <Toaster />
     </div>
   )
 }
