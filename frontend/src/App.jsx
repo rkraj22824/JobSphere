@@ -1,19 +1,21 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast';
-import Login from './components/auth/Login'
-import Signup from './components/auth/Signup'
-import Home from './components/Home'
-import Jobs from './components/Jobs'
-import Browse from './components/Browse'
-import Profile from './components/Profile'
-import JobDescription from './components/JobDescription'
-import Companies from './components/admin/Companies'
-import CompanyCreate from './components/admin/CompanyCreate'
-import CompanySetup from './components/admin/CompanySetup'
-import AdminJobs from "./components/admin/AdminJobs";
-import PostJob from './components/admin/PostJob'
-import Applicants from './components/admin/Applicants'
-import ProtectedRoute from './components/admin/ProtectedRoute'
+// import Login from './components/auth/Login'
+const Login = React.lazy(()=> import('./components/auth/Login'));
+const Signup = React.lazy(()=> import('./components/auth/Signup'));
+const Home = React.lazy(()=> import('./components/Home'));
+const Jobs = React.lazy(()=> import('./components/Jobs'));
+const Browse = React.lazy(()=> import('./components/Browse'));
+const Profile = React.lazy(()=> import('./components/Profile'));
+const Companies = React.lazy(()=> import('./components/admin/Companies'));
+const JobDescription = React.lazy(()=> import('./components/JobDescription'));
+const CompanyCreate = React.lazy(()=> import('./components/admin/CompanyCreate'));
+const CompanySetup = React.lazy(()=> import('./components/admin/CompanySetup'));
+const PostJob = React.lazy(()=> import('./components/admin/PostJob'));
+const AdminJobs = React.lazy(()=> import('./components/admin/AdminJobs'));
+const Applicants = React.lazy(()=> import('./components/admin/Applicants'));
+const ProtectedRoute = React.lazy(()=> import('./components/admin/ProtectedRoute'));
+
 
 
 const appRouter = createBrowserRouter([
