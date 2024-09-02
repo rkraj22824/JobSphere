@@ -14,14 +14,25 @@ const app = express();
 
 // middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const corsOptions = {
-    origin:'http://localhost:5173',
-    credentials:true
+const whiteList = ['http://localhost:3000/', 'https://magnificent-madeleine-dbef9e.netlify.app/']
+const corsOption = {
+    origin: function (origin, callback) {
+        if (whiteList.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by cors'))
+        }
+    },
+    Credentials: true
 }
+// const corsOptions = {
+//     origin:'',
+//     credentials:true
+// }
 
-app.use(cors(corsOptions));
+app.use(cors(corsOption));
 
 const PORT = process.env.PORT || 3000;
 
@@ -34,7 +45,7 @@ app.use("/api/v1/application", applicationRoute);
 
 
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     connectDB();
     console.log(`Server running at port ${PORT}`);
 })
