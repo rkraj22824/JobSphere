@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const whiteList = ['http://localhost:3000', 'http://localhost:5173', 'https://magnificent-madeleine-dbef9e.netlify.app']
+const whiteList = ['http://localhost:3000', 'http://localhost:5173', 'https://jobsphere01.netlify.app']
 
 const corsOptions = {
     origin: function (origin, callback) {
