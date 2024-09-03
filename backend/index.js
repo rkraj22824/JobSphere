@@ -16,23 +16,24 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const whiteList = ['http://localhost:3000/', 'https://magnificent-madeleine-dbef9e.netlify.app/']
-const corsOption = {
-    origin: function (origin, callback) {
-        if (whiteList.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by cors'))
-        }
-    },
-    Credentials: true
-}
-// const corsOptions = {
-//     origin:'',
-//     credentials:true
-// }
+const whiteList = ['http://localhost:3000', 'http://localhost:5173', 'https://magnificent-madeleine-dbef9e.netlify.app']
 
-app.use(cors(corsOption));
+const corsOptions = {
+    origin: function (origin, callback) {
+      if (!origin || whiteList.indexOf(origin) !== -1) {
+        callback(null, origin);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true
+  };
+  
+  app.use(cors(corsOptions));
+
+
+
+// app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
