@@ -15,63 +15,72 @@ const PostJob =lazy(()=> import('./components/admin/PostJob'));
 const AdminJobs =lazy(()=> import('./components/admin/AdminJobs'));
 const Applicants =lazy(()=> import('./components/admin/Applicants'));
 const ProtectedRoute =lazy(()=> import('./components/admin/ProtectedRoute'));
+import { Loader2 } from 'lucide-react';
+const Loader = ()=>{
+  return  <div className='w-full h-svh flex flex-row justify-center items-center
+  '>
+    <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+  </div>
+  
+}
+
 
 
 const appRouter = createBrowserRouter([
   {
     path: '/',
-    element: <Suspense fallback={<div>Loading...</div>}> <Home/> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <Home/> </Suspense>
   },
   {
     path: '/login',
-    element: <Suspense fallback={<div>Loading...</div>}> <Login/> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <Login/> </Suspense>
   },
   {
     path: '/signup',
-    element: <Suspense fallback={<div>Loading...</div>}> <Signup/> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <Signup/> </Suspense>
   },
   {
     path: "/jobs",
-    element: <Suspense fallback={<div>Loading...</div>}> <Jobs/> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <Jobs/> </Suspense>
   },
   {
     path: "/description/:id",
-    element: <Suspense fallback={<div>Loading...</div>}> <JobDescription/> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <JobDescription/> </Suspense>
   },
   {
     path: "/browse",
-    element: <Suspense fallback={<div>Loading...</div>}> <Browse/> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <Browse/> </Suspense>
   },
   {
     path: "/viewprofile",
-    element: <Suspense fallback={<div>Loading...</div>}> <Profile/> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <Profile/> </Suspense>
   },
   // admin ke liye yha se start hoga
   {
     path:"/admin/companies",
     
-  element:<Suspense fallback={<div>Loading...</div>}> <ProtectedRoute><Companies/></ProtectedRoute> </Suspense>
+  element:<Suspense fallback={<Loader/>}> <ProtectedRoute><Companies/></ProtectedRoute> </Suspense>
    
   },
   {
     path:"/admin/companies/create",
-    element: <Suspense fallback={<div>Loading...</div>}> <ProtectedRoute><CompanyCreate/></ProtectedRoute> </Suspense>
+    element: <Suspense fallback={<Loader/>}> <ProtectedRoute><CompanyCreate/></ProtectedRoute> </Suspense>
   },
   {
     path:"/admin/companies/:id",
-    element:<Suspense fallback={<div>Loading...</div>}> <ProtectedRoute><CompanySetup/></ProtectedRoute> </Suspense>
+    element:<Suspense fallback={<Loader/>}> <ProtectedRoute><CompanySetup/></ProtectedRoute> </Suspense>
   },
   {
     path:"/admin/jobs",
-    element:<Suspense fallback={<div>Loading...</div>}> <ProtectedRoute><AdminJobs/></ProtectedRoute> </Suspense>
+    element:<Suspense fallback={<Loader/>}> <ProtectedRoute><AdminJobs/></ProtectedRoute> </Suspense>
   },
   {
     path:"/admin/jobs/create",
-    element:<Suspense fallback={<div>Loading...</div>}> <ProtectedRoute><PostJob/></ProtectedRoute> </Suspense>
+    element:<Suspense fallback={<Loader/>}> <ProtectedRoute><PostJob/></ProtectedRoute> </Suspense>
   },
   {
     path:"/admin/jobs/:id/applicants",
-    element:<Suspense fallback={<div>Loading...</div>}> <ProtectedRoute><Applicants/></ProtectedRoute> </Suspense>
+    element:<Suspense fallback={<Loader/>}> <ProtectedRoute><Applicants/></ProtectedRoute> </Suspense>
   },
 
 ])
