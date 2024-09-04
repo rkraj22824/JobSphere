@@ -17,8 +17,7 @@ const Applicants =lazy(()=> import('./components/admin/Applicants'));
 const ProtectedRoute =lazy(()=> import('./components/admin/ProtectedRoute'));
 import { Loader2 } from 'lucide-react';
 const Loader = ()=>{
-  return  <div className='w-full h-svh flex flex-row justify-center items-center
-  '>
+  return  <div className='w-full h-svh flex flex-row justify-center items-center'>
     <Loader2 className='mr-2 h-4 w-4 animate-spin' />
   </div>
   
